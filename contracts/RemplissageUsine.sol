@@ -28,4 +28,22 @@ contract RemplissageUsine is Remplissage {
     {
         return operationTank2;
     }
+
+
+    function getOperationusinebycode(uint256 code)
+        public
+        view
+        returns (OperationTank03 memory operation)
+    {
+        for (uint256 i = 0; i < operationTank2.length; i++) {
+            if (operationTank2[i].operation.code == code) {
+                return operationTank2[i];
+            }
+        }
+    }
+
+
+
+
+
 }

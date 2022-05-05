@@ -4,7 +4,9 @@ import { Collecteur } from "./collecteur";
 import { OperationTank } from "./operationTank";
 import { Tank } from "./tank";
 import { Usine } from "./usine";
-
+import { Produit } from "./produit";
+import { Centre } from "./centre";
+import { Lot } from "./lot";
 export class Operation{
 
   idOperation!: number;
@@ -16,5 +18,9 @@ export class Operation{
   chef!:Chef;
   usine!:Usine;
   tank!:Tank;
- // collecteur!:Collecteur;
+  produit!:Produit;
+  collecteur!:Collecteur;
+  codeRemplissage!:[];
+  centreCollecte!: Centre;
+  lot!: Lot;
 }
