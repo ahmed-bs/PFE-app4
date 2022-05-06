@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { DetailComponent } from './detail/detail.component';
 
 const routes: Routes = [ 
- {path:":id", component:AppComponent}
-//   {path:'',redirectTo:'/:id',pathMatch:'full'},
+ {path:"detailComponent/:id", component:DetailComponent},
+{path:'',redirectTo:'detailComponent/:id',pathMatch:'full'}
 ];
 
 @NgModule({
