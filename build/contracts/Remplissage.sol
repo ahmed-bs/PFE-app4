@@ -93,26 +93,20 @@ contract Remplissage {
 
     struct Operation {
         uint256 idOperation;
-        uint256 code;
+        uint256 poidsLait;
         string dateOperation;
         string typeOp;
-        uint256 poidsLait;
-        Agriculteur agriculteur;
-        Collecteur collecteur;
-   
+        uint256 code;
         //string sender;
         // uint tank ;
-        
-     
+        Collecteur collecteur;
+        Agriculteur agriculteur;
     }
     struct Collecteur {
         uint256 idCollecteur;
         string nomCollecteur;
-        string prenomCollecteur;
-         string matricule ;
         string adresse;
         uint256 tel;
-       
     }
     //******************************************** */
     //Usine remplissage
@@ -180,7 +174,6 @@ struct Operation04{
         uint256 qtePrise;
         Tank tank;
         Produit produit;
-        uint256[] codeRemplissage;
   }
 
 

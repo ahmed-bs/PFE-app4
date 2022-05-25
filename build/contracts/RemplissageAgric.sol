@@ -11,7 +11,7 @@ contract RemplissageAgric is Remplissage {
     //create 2
     function addOperation2(Operation memory op)
         public
-        returns (Operation[] memory op0   )
+        returns (Operation[] memory op0)
     {
         operations2.push(op);
         return (operations2);
@@ -37,12 +37,12 @@ contract RemplissageAgric is Remplissage {
         }
     }
 
-    function GetOperationFarmerByCode(uint256 code)
+    function getOperationbycode(uint256 code, uint256 nin)
         public
         view
         returns (Operation memory operation)
     {
-        for (uint256 i = 0; i < operations2.length; i++) {
+        for (uint256 i = 0; i < nin; i++) {
             if (operations2[i].code == code) {
                 return operations2[i];
             }
