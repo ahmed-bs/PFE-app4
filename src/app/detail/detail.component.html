@@ -108,15 +108,10 @@
         <div class="card-body">
 
           <div class="inputBox">
-            <h3>Agriculteur nom</h3>
-            {{ shds.operation.agriculteur.nom }}
+            <h3>Agriculteur nom & prénom</h3>
+            {{ shds.operation.agriculteur.nom }} {{ shds.operation.agriculteur.prenom }}
           </div>
 
-          <div class="inputBox">
-            <h3>Agriculteur prenom</h3>
-            {{ shds.operation.agriculteur.prenom }}
-          </div>
-          
           <!-- <div class="inputBox">
             <h3>Centre nom</h3>
             {{ shds.operation.centreCollecte.nomCentre }} 
@@ -195,7 +190,7 @@
         <div class="card-body">
 
           <div class="inputBox">
-            <h3>collecteur nom</h3>
+            <h3>usine nom</h3>
             {{ ssss.operation.usine.nomUsine }} 
           </div> 
 
@@ -219,8 +214,8 @@
             {{ ssss.operation.code }}
           </div>
           <div class="inputBox">
-            <h3>from tank id</h3>
-            {{ ssss.tank.idTank}}
+            <h3>depuis tank id : {{ ssss.tank.idTank}}</h3>
+            {{ ssss.qteInsereTank}}
           </div>
         </div>
       </form>
@@ -266,7 +261,7 @@
         <div class="card-body">
 
           <div class="inputBox">
-            <h3>from Centre </h3>
+            <h3>depuis Centre </h3>
             {{ eeee.operation.centreCollecte.nomCentre }}
           </div>
 
@@ -286,11 +281,7 @@
             {{ eeee.operation.code }}
           </div>
           <div class="inputBox">
-            <h3>tank id</h3>
-            {{ eeee.tank.idTank}}
-          </div>
-          <div class="inputBox">
-            <h3>tank id</h3>
+            <h3>quantitee inseree dans tank id:{{ eeee.tank.idTank}}</h3>
             {{ eeee.qteInsereTank}}
           </div>
         </div>
@@ -382,7 +373,7 @@
             {{ operationsTransferResult.code }}
           </div>
           <div class="inputBox">
-            <h3>from tank id</h3>
+            <h3>depuis tank id</h3>
             {{ operationsTransferResult.tank.idTank}}
           </div>
         </div>
