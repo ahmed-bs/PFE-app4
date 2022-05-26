@@ -23,14 +23,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DetailComponent } from './detail/detail.component';
+
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { HomeComponent } from './home/home.component';
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
-      DetailComponent
+      DetailComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ZXingScannerModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,

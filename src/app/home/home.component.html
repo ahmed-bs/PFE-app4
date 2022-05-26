@@ -1,0 +1,10 @@
+
+    <input type="file" accept="image/*" (change)="onFileChange($event)">
+    <button (click)="onClick()">clicked</button>
+    <zxing-scanner [enable]="scannerEnabled" 
+    (scanSuccess)="scanSuccessHandler($event)"
+    
+    style="width: 400px;height: 400px ;"></zxing-scanner> 
+    <!-- (scanError)="scanErrorHandler($event)"
+    (scanFailure)="scanFailureHandler($event)"
+    (scanComplete)="scanCompleteHandler($event)" -->
