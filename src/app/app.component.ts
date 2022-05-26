@@ -1,32 +1,41 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ethers } from 'ethers';
-import { async, Observable, of } from 'rxjs';
-import { AgrsOperation } from './Models/agrsOperation';
-import { OperationTank } from './Models/operationTank';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 import { __await, __values } from 'tslib';
-import { Operation } from './Models/operation';
-import {ActivatedRoute} from '@angular/router';
-import { HttpClient, HttpParams  } from '@angular/common/http';
-import { query } from '@angular/animations';
-declare let require: any;
-declare let window: any;
-let RetraitCentreAdress = require('../../build/contracts/RetraitCol.json');
-let RetraitFarmerAdresse = require('../../build/contracts/RemplissageAgric.json');
-let RemplissageUsineAdress = require('../../build/contracts/RemplissageUsine.json');
-let RemplissageCentreAdress = require('../../build/contracts/RemplissageCol.json');
-let TransferAdress = require('../../build/contracts/Transformation.json');
+import { QrCodeReader } from './qr-code-reader.service';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+export class AppComponent implements OnDestroy {
+  title = 'app works!';
+
+  subscription!: Subscription;
+
+  constructor(private qrReader: QrCodeReader,private route:Router) { }
+
+  go(link : string){
+		this.route.navigate([link]); // navigate to other page
+	}
+
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+str !: string;
+  onFileChange(event:any) {
+    const file = event.target.files[0];
+    this.subscription = this.qrReader.decode(file)
+      .subscribe(
+        decodedString => {
+          window.location.href = decodedString;
+        });
+       
+       
   }
 
 }

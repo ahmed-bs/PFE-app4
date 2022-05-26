@@ -10,9 +10,10 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { __await, __values } from 'tslib';
 import { Operation } from '../Models/operation';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { query } from '@angular/animations';
+import { Location } from '@angular/common';
 declare let require: any;
 declare let window: any;
 let RetraitCentreAdress = require('/build/contracts/RetraitCol.json');
@@ -27,7 +28,8 @@ let TransferAdress = require('/build/contracts/Transformation.json');
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private dialog: MatDialog, private rout: ActivatedRoute, private http: HttpClient
+  constructor(private dialog: MatDialog, private rout: ActivatedRoute, private http: HttpClient,
+    private router: Router,    private location: Location,
   ) {
 
   }
@@ -579,9 +581,26 @@ export class DetailComponent implements OnInit {
 
   ddd !: any;
 
+  async requestAccount() {
+    if (typeof window.ethereum !== 'undefined') {
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+    }
+  }
 
+  onReload(): void {
+    // this.router.navigate([this.router.url]);
+    this.router
+      .navigateByUrl("/'detailComponent/", {
+        skipLocationChange: true,
+      })
+      .then(() => {
+        this.router.navigate([decodeURI(this.location.path())]);
+      });
+  }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.requestAccount();
+    this.onReload();
     //centre -
     this.reloadDataRetraitCentre01();
     this.reloadDataRetraitCentre00();

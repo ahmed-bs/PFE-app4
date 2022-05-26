@@ -8,13 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { MatDialogModule} from "@angular/material/dialog";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { QrCodeReader } from './qr-code-reader.service';
 // AddForPaginator
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -33,7 +32,6 @@ import { DetailComponent } from './detail/detail.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
     FormsModule,
     HttpClientModule,
     MatDialogModule,
@@ -52,7 +50,7 @@ import { DetailComponent } from './detail/detail.component';
      MatTableModule,
      MatSnackBarModule,
   ],
-  providers: [],
+  providers: [QrCodeReader],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
