@@ -1,0 +1,115 @@
+<ion-header>
+  
+  <ion-toolbar color="primary">
+    
+
+    <ion-title>QR Scanner</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+
+  <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="onFileChange($event)">
+ <!-- Trigger the file input -->
+ <ion-button expand="full" (click)="captureImage()">
+  <ion-icon slot="start" name="camera"></ion-icon>
+  Upload & Scan Image
+</ion-button>
+
+<ion-button expand="full" (click)="startScan()">
+  <ion-icon slot="start" name="scan-outline"></ion-icon>
+  Start scan
+</ion-button>
+
+<ion-button expand="full" (click)="stopScan()"  *ngIf="scannerEnabled">
+  <ion-icon slot="start" name="close"></ion-icon>
+  Stop scan
+</ion-button>
+
+<ion-button expand="full" (click)="reset()" *ngIf="scanResult">
+  <ion-icon slot="start" name="refresh"></ion-icon>
+  Reset
+</ion-button>
+
+
+<ion-card *ngIf="scannerEnabled" >
+<zxing-scanner [enable]="scannerEnabled" 
+(scanSuccess)="scanSuccessHandler($event) "
+(scanFailure)="scanFailureHandler($event)"
+style="margin:auto;width: 400px;height: 400px ;"></zxing-scanner> 
+
+</ion-card>
+
+
+
+
+<ion-card *ngIf="scanResult!==''">
+  <ion-card-header>
+    <ion-card-title>Link</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <!-- else failedToReadQRCodeSection; -->
+    <ng-container *ngIf="scanResult;">
+      <ng-template #displayURLMetadataTemplate>
+        <a (click)="openQrCodeLink()"><span>{{ scanResult }}</span></a>
+
+        
+      </ng-template>
+      <ng-template #displayTextMetadataTemplate>
+        {{ scanResult }}
+      </ng-template>
+      <ion-button expand="block"  (click)="openQrCodeLink()">
+        <!-- <ion-icon name="open"></ion-icon> -->
+        Open
+      </ion-button>
+      <ion-button expand="block" (click)="sharePropertyUsingTheWebShareApi()" >
+        <ion-icon name="share-social"></ion-icon>
+        Share
+      </ion-button>
+      <!-- <ion-card div class="card">
+        <img *ngIf="imgObjectURLs?.length" [src]="imgObjectURLs[imgObjectURLs.length-1]" />
+      </ion-card> -->
+    </ng-container>
+
+
+  </ion-card-content>
+</ion-card>
+
+
+
+
+
+
+
+<ion-footer>
+  <ion-toolbar color="primary" *ngIf="appIsOnline">
+    <ion-title>You are online :)</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="danger" *ngIf="!appIsOnline">
+    <ion-title>You are offline :(</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+
+
+<!-- 
+
+  <input type="file" accept="image/*" (change)="onFileChange($event)">
+  <button  (click)="sharePropertyUsingTheWebShareApi()" >clicked22</button>
+  <zxing-scanner [enable]="scannerEnabled" 
+  (scanSuccess)="scanSuccessHandler($event) "
+  (scanFailure)="scanFailureHandler($event)"
+  style="width: 400px;height: 400px ;"></zxing-scanner>  -->
+</ion-content>
+
+    <!-- <ion-button expand="block" (click)="sharePropertyUsingTheWebShareApi()" *ngIf="canShare()">
+      <ion-icon name="share-social"></ion-icon>
+      Share
+    </ion-button> -->
+    <!-- (scanError)="scanErrorHandler($event)"
+    (scanFailure)="scanFailureHandler($event)"
+    (scanComplete)="scanCompleteHandler($event)" -->
