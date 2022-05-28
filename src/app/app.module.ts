@@ -23,9 +23,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DetailComponent } from './detail/detail.component';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { HomeComponent } from './home/home.component';
+import { RouteReuseStrategy } from '@angular/router';
 @NgModule({
   declarations: [			
     AppComponent,
@@ -54,8 +56,9 @@ import { HomeComponent } from './home/home.component';
      MatInputModule,
      MatTableModule,
      MatSnackBarModule,
+   IonicModule.forRoot()
   ],
-  providers: [QrCodeReader],
+  providers: [QrCodeReader,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
