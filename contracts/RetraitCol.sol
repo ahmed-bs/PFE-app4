@@ -8,17 +8,26 @@ contract RetraitCol is Remplissage {
     //******************************************************************************/
     Operation[] public operationagrs;
     OperationTank0[] public operationTankR;
-
+    uint[] public nbreOP ;
+    
     function RetraitOperationTank(
         OperationTank0[] memory operationTank,
         uint256 count
     ) public returns (OperationTank0[] memory tt0) {
+        nbreOP.push(0);
         for (uint256 i = 0; i < count; i++) {
             operationTankR.push(operationTank[i]);
         }
         return (operationTankR);
     }
-
+    //get nombre operatuin
+    function getOperationNumbers()
+        public
+        view
+        returns (uint[] memory result)
+    {
+        return nbreOP;
+    }
     //get all operations
 
     function getOperationTanks()

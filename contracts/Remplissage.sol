@@ -89,6 +89,7 @@ contract Remplissage {
         string prenom;
         string username;
         string password;
+        string adress;
     }
 
     struct Operation {
@@ -99,20 +100,17 @@ contract Remplissage {
         uint256 poidsLait;
         Agriculteur agriculteur;
         Collecteur collecteur;
-   
+
         //string sender;
         // uint tank ;
-        
-     
     }
     struct Collecteur {
         uint256 idCollecteur;
         string nomCollecteur;
-        string prenomCollecteur;
-         string matricule ;
+        // string prenomCollecteur;
+        string matricule;
         string adresse;
         uint256 tel;
-       
     }
     //******************************************** */
     //Usine remplissage
@@ -171,7 +169,7 @@ contract Remplissage {
     //******************************************** */
     //transformation remplissage
     //********************************************* */
-struct Operation04{
+    struct Operation04 {
         uint256 idOperation;
         uint256 poidsLait;
         string dateOperation;
@@ -181,18 +179,7 @@ struct Operation04{
         Tank tank;
         Produit produit;
         uint256[] codeRemplissage;
-  }
-
-
-
-
-
-
-
-
-
-
-
+    }
 
     constructor() {}
 }
