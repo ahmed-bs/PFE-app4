@@ -21,14 +21,16 @@
     <span>s</span>
     <span>t</span>
   </h1>
-
-  <div class="row" *ngIf="OperationFarmerResultsTab">
+<div>
+  <div class="row" >
 
     <div class="image" >
-      <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 720px;">
+      <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 660px;">
     </div>
+  </div>
+  <div class="row" >
 
-    <form action="" *ngFor="let shd of OperationFarmerResultsTab" style="height: 720px;">
+    <form action="" *ngFor="let shd of OperationFarmerResultsTab" style="height: 660px;">
 
 
 
@@ -64,7 +66,7 @@
 
     </form>
   </div>
-
+</div>
 
 
 
@@ -104,10 +106,16 @@
 
 
 
-  <div  *ngIf="operationsRemplissageColResultsTab">
-    <div class="row" *ngFor="let shds of operationsRemplissageColResultsTab">
+  <div >
+    <div class="row" >
 
-      <form action="" style="height: 720px;" >
+      <div class="image" >
+        <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 660px;">
+      </div>
+    </div>
+
+    <div class="row" >
+      <form action="" style="height: 660px;" *ngFor="let shds of operationsRemplissageColResultsTab">
         <div class="card-body">
 
           <div class="inputBox">
@@ -143,9 +151,7 @@
         </div>
       </form>
 
-      <div class="image">
-        <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 720px;">
-      </div>
+     
 
     </div>
   </div>
@@ -183,13 +189,16 @@
 
 
 
-  <div  *ngIf="tankOperationTranferResultsTab">
-    <div class="row" *ngFor="let ssss of tankOperationTranferResultsTab">
+  <div >
+    <div class="row" >
 
       <div class="image">
-        <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 720px;">
+        <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
-      <form action="" style="height: 720px;">
+    </div>
+
+    <div class="row" >
+      <form action="" style="height: 660px;" *ngFor="let ssss of tankOperationTranferResultsTab">
         <div class="card-body">
 
           <div class="inputBox">
@@ -257,10 +266,18 @@
 
 
 
-  <div  *ngIf="tankOpUsineRemplissageResultsTab">
-    <div class="row" *ngFor="let eeee of tankOpUsineRemplissageResultsTab">
+  <div >
+    <div class="row" >
 
-      <form action="" style="height: 720px;">
+      
+      <div class="image">
+        <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 660px;">
+      </div>
+    </div>
+
+    <div class="row" >
+
+      <form action="" style="height: 660px;" *ngFor="let eeee of tankOpUsineRemplissageResultsTab">
         <div class="card-body">
 
           <div class="inputBox">
@@ -290,9 +307,6 @@
         </div>
       </form>
 
-      <div class="image">
-        <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 720px;">
-      </div>
 
     </div>
   </div>
@@ -340,10 +354,17 @@
     <span>t</span>
   </h1>
 
+<div *ngIf="operationsTransferResult">
+    <div class="row"  >
 
-    <div class="row"  *ngIf="operationsTransferResult">
+      <div class="image">
+        <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 660px;">
+      </div>
+    </div>
 
-      <form action="" style="height: 720px;">
+    <div class="row"  >
+
+      <form action="" style="height: 660px;">
         <div class="card-body">
 
           <!-- <div class="inputBox">
@@ -382,12 +403,9 @@
         </div>
       </form>
 
-      <div class="image">
-        <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 720px;">
-      </div>
-
     
   </div>
+</div>
 
 
 
