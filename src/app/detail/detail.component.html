@@ -34,14 +34,9 @@
 
       <div class="card-body" >
         <div class="inputBox">
-          <h3>Agriculteur name</h3>
-          {{ shd.agriculteur.nom }}
+          <h3>Agriculteur name & prenom</h3>
+          {{ shd.agriculteur.nom }} {{ shd.agriculteur.prenom }}
         </div>
-        <div class="inputBox">
-          <h3>Agriculteur prenom</h3>
-          {{ shd.agriculteur.prenom }}
-        </div>
-
         <div class="inputBox">
           <h3>Operation code</h3>
           {{ shd.code }}
@@ -55,6 +50,14 @@
         <div class="inputBox">
           <h3>Operation retrait date</h3>
           {{ shd.dateOperation }}
+        </div>
+          <div class="inputBox">
+          <h3>adresse </h3>
+          {{ shd.agriculteur.adress }}
+        </div>
+        <div class="inputBox">
+          <h3>pour </h3>
+          {{ shd.collecteur.nomCollecteur }} 
         </div>
       </div>
 
