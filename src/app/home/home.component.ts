@@ -5,7 +5,9 @@ import { ethers } from 'ethers';
 import { __await, __values } from 'tslib';
 
 import { QrCodeReader } from './../qr-code-reader.service';
+import { AgrsOperation } from '../Models/agrsOperation';
 declare let window: any;
+let RetraitFarmerAdresse = require('/build/contracts/RemplissageAgric.json');
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,9 +17,10 @@ export class HomeComponent implements OnDestroy ,OnInit {
   @ViewChild('fileinput', { static: false })
   private _fileinput: ElementRef | undefined;
   subscription!: Subscription;
-
+  connected!:boolean;
   constructor(private qrReader: QrCodeReader,private route:Router) { }
   ngOnInit(): void {
+    this.reloadDataFarmerRetrait01() 
   //  this.appIsOnline = false ;
    // this.requestAccount()
   }
@@ -46,9 +49,41 @@ str !: string;
   }
 
 
+  AllOperationsFarmerTab!: AgrsOperation[];
+  async reloadDataFarmerRetrait01() {
+
+    if (typeof window.ethereum !== 'undefined') {
+      try {
+        const depKEY = Object.keys(RetraitFarmerAdresse.networks)[0];
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          RetraitFarmerAdresse.networks[depKEY].address,
+          RetraitFarmerAdresse.abi,
+          signer
+        );
+        this.AllOperationsFarmerTab = await contract.getOperations();
+        this.connected = true ;
+        console.log(
+          '**************************0000000000000000000000000 /////////////////////////////'
+        );
+        console.log(this.AllOperationsFarmerTab);
+      } catch (error) {
+        this.connected = false ;
+      }
+
+    }
+  }
   
 //************************************************************************************* */
 
+async requestAccount() {
+  if (typeof window.ethereum !== 'undefined') {
+    await window.ethereum.request({ method: 'eth_requestAccounts' });
+    location.reload();
+  } 
+  console.log("it does work ")
+}
 
   //************************************************************************************* */
   scannerEnabled: boolean = false ;
