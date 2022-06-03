@@ -2,12 +2,17 @@
   
   <ion-toolbar color="primary">
     
+<div class="row">   
+   <ion-title>QR Scanner</ion-title>
+  <button id="button" class="button" (click)="requestAccount()">00</button>
+  <h6 style="margin-left : 4px;margin-right:14px;padding-top:11px;" *ngIf="!connected"> not connected</h6>
+  <h6 style="margin-left : 4px;margin-right:14px;padding-top:11px;" *ngIf="connected">connected</h6>
+</div>
 
-    <ion-title>QR Scanner</ion-title>
-    
+ 
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content *ngIf="connected">
   
 
   <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="onFileChange($event)">
@@ -82,14 +87,7 @@ style="margin:auto;width: 400px;height: 400px ;"></zxing-scanner>
 
 
 
-<ion-footer>
-  <ion-toolbar color="primary" *ngIf="appIsOnline">
-    <ion-title>You are online :)</ion-title>
-  </ion-toolbar>
-  <ion-toolbar color="danger" *ngIf="!appIsOnline">
-    <ion-title>You are offline :(</ion-title>
-  </ion-toolbar>
-</ion-footer>
+
 
 
 
@@ -105,7 +103,14 @@ style="margin:auto;width: 400px;height: 400px ;"></zxing-scanner>
   (scanFailure)="scanFailureHandler($event)"
   style="width: 400px;height: 400px ;"></zxing-scanner>  -->
 </ion-content>
-
+<ion-footer>
+  <ion-toolbar color="primary" *ngIf="connected">
+    <ion-title>You are online :)</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="danger" *ngIf="!connected">
+    <ion-title>You are offline :(</ion-title>
+  </ion-toolbar>
+</ion-footer>
     <!-- <ion-button expand="block" (click)="sharePropertyUsingTheWebShareApi()" *ngIf="canShare()">
       <ion-icon name="share-social"></ion-icon>
       Share
