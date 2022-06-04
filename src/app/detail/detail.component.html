@@ -1,4 +1,3 @@
-
 <section class="book" id="book">
 
   <h1 class="heading">
@@ -21,52 +20,52 @@
     <span>s</span>
     <span>t</span>
   </h1>
-<div>
-  <div class="row" >
+  <div>
+    <div class="row">
 
-    <div class="image" >
-      <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 660px;">
+      <div class="image">
+        <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 660px;">
+      </div>
+    </div>
+    <div class="row">
+
+      <form action="" *ngFor="let shd of OperationFarmerResultsTab" style="height: auto;">
+
+
+
+        <div class="card-body">
+          <div class="inputBox">
+            <h3>Agriculteur nom & prénom</h3>
+            {{ shd.agriculteur.nom }} {{ shd.agriculteur.prenom }}
+          </div>
+          <div class="inputBox">
+            <h3>Operation code</h3>
+            {{ shd.code }}
+          </div>
+
+          <div class="inputBox">
+            <h3>Quantite sortie</h3>
+            {{ shd.poidsLait }} kg
+          </div>
+
+          <div class="inputBox">
+            <h3>Operation retrait date</h3>
+            {{ shd.dateOperation }}
+          </div>
+          <div class="inputBox">
+            <h3>adresse </h3>
+            {{ shd.agriculteur.adress }}
+          </div>
+          <div class="inputBox">
+            <h3>pour </h3>
+            {{ shd.collecteur.nomCollecteur }}
+          </div>
+        </div>
+
+
+      </form>
     </div>
   </div>
-  <div class="row" >
-
-    <form action="" *ngFor="let shd of OperationFarmerResultsTab" style="height: 660px;">
-
-
-
-      <div class="card-body" >
-        <div class="inputBox">
-          <h3>Agriculteur name & prenom</h3>
-          {{ shd.agriculteur.nom }} {{ shd.agriculteur.prenom }}
-        </div>
-        <div class="inputBox">
-          <h3>Operation code</h3>
-          {{ shd.code }}
-        </div>
-
-        <div class="inputBox">
-          <h3>Quantite sortie</h3>
-          {{ shd.poidsLait }} kg
-        </div>
-
-        <div class="inputBox">
-          <h3>Operation retrait date</h3>
-          {{ shd.dateOperation }}
-        </div>
-          <div class="inputBox">
-          <h3>adresse </h3>
-          {{ shd.agriculteur.adress }}
-        </div>
-        <div class="inputBox">
-          <h3>pour </h3>
-          {{ shd.collecteur.nomCollecteur }} 
-        </div>
-      </div>
-
-
-    </form>
-  </div>
-</div>
 
 
 
@@ -87,7 +86,7 @@
     <span>a</span>
     <span>g</span>
     <span>e</span>
-    <br>    
+    <br>
     <span class="space"></span>
     <span>c</span>
     <span>e</span>
@@ -106,16 +105,16 @@
 
 
 
-  <div >
-    <div class="row" >
+  <div>
+    <div class="row">
 
-      <div class="image" >
+      <div class="image">
         <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
 
-    <div class="row" >
-      <form action="" style="height: 660px;" *ngFor="let shds of operationsRemplissageColResultsTab">
+    <div class="row">
+      <form action="" style="height: auto;" *ngFor="let shds of Tab_Centre_Remplissage_Tank; let j  = index">
         <div class="card-body">
 
           <div class="inputBox">
@@ -142,16 +141,16 @@
             <h3>code de l'operation</h3>
             {{ shds.operation.code }}
           </div>
-        
-          <div class="inputBox">
-
-            <h3>qte inseree in tank id : {{ shds.tank.idTank}}</h3>
-             {{ shds.qteInsereTank}} 
+          <ng-container *ngFor="let eeee of operationsRemplissageColResultsTab; let p  = index   ">
+          <div class="inputBox" *ngIf="compare_code(operationsRemplissageColResultsTab[p],Tab_Centre_Remplissage_Tank[j])">
+            <h3>qte inseree in tank id : {{ operationsRemplissageColResultsTab[p].tank.idTank}}</h3>
+            {{ operationsRemplissageColResultsTab[p].qteInsereTank}}
           </div>
+        </ng-container>
         </div>
       </form>
 
-     
+
 
     </div>
   </div>
@@ -166,7 +165,7 @@
     <span>a</span>
     <span>i</span>
     <span>t</span>
-    <span>s</span>   
+    <span>s</span>
     <br>
     <span class="space"></span>
     <span>c</span>
@@ -189,27 +188,22 @@
 
 
 
-  <div >
-    <div class="row" >
+  <div>
+    <div class="row">
 
       <div class="image">
         <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
 
-    <div class="row" >
-      <form action="" style="height: 660px;" *ngFor="let ssss of tankOperationTranferResultsTab">
+    <div class="row">
+      <form action="" style="height: auto;" *ngFor="let ssss of Tab_Centre_Retrait_Tank; let j  = index">
         <div class="card-body">
 
           <div class="inputBox">
             <h3>usine nom</h3>
-            {{ ssss.operation.usine.nomUsine }} 
-          </div> 
-
-          <!-- <div class="inputBox">
-            <h3>collecteur nom</h3>
-            {{ ssss.operation.centreCollecte.nomCentre }} 
-          </div>  -->
+            {{ ssss.operation.usine.nomUsine }}
+          </div>
 
           <div class="inputBox">
             <h3>Quantite de retrait</h3>
@@ -225,10 +219,12 @@
             <h3>code de l'operation</h3>
             {{ ssss.operation.code }}
           </div>
-          <div class="inputBox">
-            <h3>depuis tank id : {{ ssss.tank.idTank}}</h3>
-            {{ ssss.qteInsereTank}}
+          <ng-container *ngFor="let eeee of tankOperationTranferResultsTab; let p  = index   ">
+          <div class="inputBox"  *ngIf="compare_code(tankOperationTranferResultsTab[p],Tab_Centre_Retrait_Tank[j])">
+            <h3>depuis tank id : {{ tankOperationTranferResultsTab[p].tank.idTank}}</h3>
+            {{ tankOperationTranferResultsTab[p].qteInsereTank}}
           </div>
+        </ng-container>
         </div>
       </form>
 
@@ -248,9 +244,9 @@
     <span>s</span>
     <span>a</span>
     <span>g</span>
-    <span>e</span> 
+    <span>e</span>
     <span class="space"></span>
-  <br>
+    <br>
     <span>u</span>
     <span>s</span>
     <span>i</span>
@@ -266,47 +262,52 @@
 
 
 
-  <div >
-    <div class="row" >
+  <div>
+    <div class="row">
 
-      
+
       <div class="image">
         <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
 
     <div class="row" >
+      <form action="" style="height: auto;" *ngFor="let ttt of Tab_Usine_Remplissage_Tank; let j  = index">
 
-      <form action="" style="height: 660px;" *ngFor="let eeee of tankOpUsineRemplissageResultsTab">
         <div class="card-body">
 
           <div class="inputBox">
             <h3>depuis Centre </h3>
-            {{ eeee.operation.centreCollecte.nomCentre }}
+            {{ ttt.operation.centreCollecte.nomCentre }}
           </div>
 
 
           <div class="inputBox">
             <h3>Quantite de remplissage</h3>
-            {{ eeee.operation.poidsLait }}
+            {{ ttt.operation.poidsLait }}
           </div>
 
           <div class="inputBox">
             <h3>date de remplissage</h3>
-            {{ eeee.operation.dateOperation }}
+            {{ ttt.operation.dateOperation }}
           </div>
 
           <div class="inputBox">
             <h3>code de l'operation</h3>
-            {{ eeee.operation.code }}
+            {{ ttt.operation.code }}
           </div>
-          <div class="inputBox">
-            <h3>quantitee inseree dans tank id:{{ eeee.tank.idTank}}</h3>
-            {{ eeee.qteInsereTank}}
-          </div>
-        </div>
-      </form>
+          <ng-container *ngFor="let eeee of tankOpUsineRemplissageResultsTab; let p  = index   ">
 
+            <div class="inputBox"
+              *ngIf="compare_code(tankOpUsineRemplissageResultsTab[p],Tab_Usine_Remplissage_Tank[j])">
+              <h3>quantitee inseree dans tank id:{{tankOpUsineRemplissageResultsTab[p].tank.idTank}}</h3>
+              {{tankOpUsineRemplissageResultsTab[p].qteInsereTank}}
+            </div>
+          </ng-container>
+
+        </div>
+
+      </form>
 
     </div>
   </div>
@@ -335,12 +336,12 @@
     <span>r</span>
     <span>m</span>
     <span>a</span>
-    <span>t</span> 
+    <span>t</span>
     <span>i</span>
     <span>o</span>
-    <span>n</span> 
+    <span>n</span>
     <span class="space"></span>
-  <br>
+    <br>
     <span>u</span>
     <span>s</span>
     <span>i</span>
@@ -354,15 +355,15 @@
     <span>t</span>
   </h1>
 
-<div *ngIf="operationsTransferResult">
-    <div class="row"  >
+  <div *ngIf="operationsTransferResult">
+    <div class="row">
 
       <div class="image">
         <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
 
-    <div class="row"  >
+    <div class="row">
 
       <form action="" style="height: 660px;">
         <div class="card-body">
@@ -403,9 +404,9 @@
         </div>
       </form>
 
-    
+
+    </div>
   </div>
-</div>
 
 
 
@@ -430,7 +431,7 @@
 
 
 
-<!-- 
+  <!-- 
 
   <div *ngFor="let ssss of agrsOperations0 | async">
     <span class="timeline-body">
@@ -486,7 +487,7 @@
   <br /> <br />
 -->
 <!-- 
-  <div *ngFor="let qqqqsss of agrsOperations0T | async">
+  <div *ngFor="let qqqqsss of Tab_Centre_Remplissage_Tank">
     <span class="timeline-body">
       //*********************** oop usine
       transfer***********************************************************************//<br />
@@ -497,7 +498,7 @@
     </span>
     <br />
   </div>
-  <br /> <br />  -->
+  <br /> <br /> -->
 
 
 
@@ -530,7 +531,7 @@
 
   <br /> <br /><br /> <br />
 
-<!-- 
+  <!-- 
   <p>find by operation de retrait de centre using transfer code (code de transfer usine )</p>
   <p><input type="number" id="id" name="id" #id /></p>
   <button type="button" (click)="Compare_TransferOP_RetraitCentreOPT(id.value)">Clickme</button>
