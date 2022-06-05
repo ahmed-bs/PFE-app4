@@ -344,7 +344,9 @@ export class DetailComponent implements OnInit {
       }
 
     }
-
+    if(this.Tab_Centre_Remplissage_Tank[0] == null){
+      this.Tab_Centre_Remplissage_Tank[0] = this.operationsRemplissageColResultsTab[0];
+    }
     for (let i = 0; i < this.operationsRemplissageColResultsTab.length; i++) {
       if (
         i != 0 &&
@@ -397,7 +399,40 @@ export class DetailComponent implements OnInit {
         }
       }
     }
-    this.Last_Tab();
+    var tt = 0;
+    var jj = 0;
+
+
+
+    if(this.Tab_Usine_Remplissage_Tank[0] == null){
+      this.Tab_Usine_Remplissage_Tank[0] = this.tankOpUsineRemplissageResultsTab[0];
+    }
+    for (let i = 0; i < this.tankOpUsineRemplissageResultsTab.length; i++) {
+      if (
+        i != 0 &&
+        Number(this.tankOpUsineRemplissageResultsTab[i].operation.code) !=
+        Number(this.tankOpUsineRemplissageResultsTab[i - 1].operation.code)
+      ) {
+        this.Tab_Usine_Remplissage_Tank[tt] = this.tankOpUsineRemplissageResultsTab[i - 1];
+        tt++;
+        this.Tab_Usine_Remplissage_Tank[tt] = this.tankOpUsineRemplissageResultsTab[i];
+      }
+    }
+    if(this.Tab_Centre_Retrait_Tank[0] == null){
+      this.Tab_Centre_Retrait_Tank[0] = this.tankOperationTranferResultsTab[0];
+    }
+
+    for (let i = 0; i < this.tankOpUsineRemplissageResultsTab.length; i++) {
+      if (
+        i != 0 &&
+        Number(this.tankOperationTranferResultsTab[i].operation.code) !=
+        Number(this.tankOperationTranferResultsTab[i - 1].operation.code)
+      ) {
+        this.Tab_Centre_Retrait_Tank[jj] = this.tankOperationTranferResultsTab[i - 1];
+        jj++;
+        this.Tab_Centre_Retrait_Tank[jj] = this.tankOperationTranferResultsTab[i];
+      }
+    }
   }
 
   Tab_Usine_Remplissage_Tank: OperationTank[] = [];
@@ -425,33 +460,7 @@ export class DetailComponent implements OnInit {
   //this to filter the repeated code
 
   Last_Tab() {
-    var tt = 0;
-    var jj = 0;
 
-    for (let i = 0; i < this.tankOpUsineRemplissageResultsTab.length; i++) {
-      if (
-        i != 0 &&
-        Number(this.tankOpUsineRemplissageResultsTab[i].operation.code) !=
-        Number(this.tankOpUsineRemplissageResultsTab[i - 1].operation.code)
-      ) {
-        this.Tab_Usine_Remplissage_Tank[tt] = this.tankOpUsineRemplissageResultsTab[i - 1];
-        tt++;
-        this.Tab_Usine_Remplissage_Tank[tt] = this.tankOpUsineRemplissageResultsTab[i];
-      }
-    }
-
-
-    for (let i = 0; i < this.tankOperationTranferResultsTab.length; i++) {
-      if (
-        i != 0 &&
-        Number(this.tankOperationTranferResultsTab[i].operation.code) !=
-        Number(this.tankOperationTranferResultsTab[i - 1].operation.code)
-      ) {
-        this.Tab_Centre_Retrait_Tank[jj] = this.tankOperationTranferResultsTab[i - 1];
-        jj++;
-        this.Tab_Centre_Retrait_Tank[jj] = this.tankOperationTranferResultsTab[i];
-      }
-    }
 
 
   }
