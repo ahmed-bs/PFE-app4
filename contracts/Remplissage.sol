@@ -40,6 +40,7 @@ contract Remplissage {
         // uint tank ;
         string username;
         string password;
+        string centreNom;
     }
     struct OperationTank {
         uint256 idOpTank;
