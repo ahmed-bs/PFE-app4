@@ -1,5 +1,4 @@
 <section class="book" id="book">
-
   <h1 class="heading">
     <span>a</span>
     <span>g</span>
@@ -22,17 +21,12 @@
   </h1>
   <div>
     <div class="row">
-
       <div class="image">
-        <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 660px;">
+        <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 660px;width: 665px;">
       </div>
     </div>
     <div class="row">
-
       <form action="" *ngFor="let shd of OperationFarmerResultsTab" style="height: auto;">
-
-
-
         <div class="card-body">
           <div class="inputBox">
             <h3>Nom et prénom de l'agriculteur :</h3>
@@ -61,19 +55,9 @@
             {{ shd.collecteur.nomCollecteur }}
           </div>
         </div>
-
-
       </form>
     </div>
   </div>
-
-
-
-
-
-
-
-
   <h1 class="heading">
     <span>r</span>
     <span>e</span>
@@ -101,62 +85,43 @@
     <span>s</span>
     <span>t</span>
   </h1>
-
-
-
-
   <div>
     <div class="row">
-
       <div class="image">
         <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
-
     <div class="row">
       <form action="" style="height: auto;" *ngFor="let shds of Tab_Centre_Remplissage_Tank; let j  = index">
         <div class="card-body">
-
           <div class="inputBox">
             <h3>Nom et prénom de l'agriculteur :</h3>
             {{ shds.operation.agriculteur.nom }} {{ shds.operation.agriculteur.prenom }}
           </div>
-
-          <!-- <div class="inputBox">
-            <h3>Centre nom</h3>
-            {{ shds.operation.centreCollecte.nomCentre }} 
-          </div>  -->
-
           <div class="inputBox">
             <h3>La quantité reçue :</h3>
             {{ shds.operation.poidsLait }}
           </div>
-
           <div class="inputBox">
             <h3>La date d'opération correspond au jour où le collecteur a réalisé l'opération de remplissage est :</h3>
             {{ shds.operation.dateOperation }}
           </div>
-
           <div class="inputBox">
             <h3>Le code de l'operation reçu est :</h3>
             {{ shds.operation.code }}
           </div>
           <ng-container *ngFor="let eeee of operationsRemplissageColResultsTab; let p  = index   ">
-          <div class="inputBox" *ngIf="compare_code(operationsRemplissageColResultsTab[p],Tab_Centre_Remplissage_Tank[j])">
-            <h3>la quantité inserée dans le " tank numéro {{ operationsRemplissageColResultsTab[p].tank.idTank}}" est : </h3>
-            {{ operationsRemplissageColResultsTab[p].qteInsereTank}}
-          </div>
-        </ng-container>
+            <div class="inputBox"
+              *ngIf="compare_code(operationsRemplissageColResultsTab[p],Tab_Centre_Remplissage_Tank[j])">
+              <h3>la quantité inserée dans le " tank numéro {{ operationsRemplissageColResultsTab[p].tank.idTank}}" est
+                : </h3>
+              {{ operationsRemplissageColResultsTab[p].qteInsereTank}}
+            </div>
+          </ng-container>
         </div>
       </form>
-
-
-
     </div>
   </div>
-
-
-
   <h1 class="heading">
     <span>r</span>
     <span>e</span>
@@ -181,58 +146,42 @@
     <span>s</span>
     <span>t</span>
   </h1>
-
-
-
-
-
-
-
   <div>
     <div class="row">
-
       <div class="image">
         <img [src]="imageSrcentre" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
-
     <div class="row">
       <form action="" style="height: auto;" *ngFor="let ssss of Tab_Centre_Retrait_Tank; let j  = index">
         <div class="card-body">
-
           <div class="inputBox">
             <h3>Le lait a été livré a l'usine où son nom est :</h3>
             {{ ssss.operation.usine.nomUsine }}
           </div>
-
           <div class="inputBox">
             <h3>La quantité livrée à l'usine est :</h3>
             {{ ssss.operation.poidsLait }}
           </div>
-
           <div class="inputBox">
             <h3>La date de livraison du lait :</h3>
             {{ ssss.operation.dateOperation }}
           </div>
-
           <div class="inputBox">
             <h3>Le code de livraison :</h3>
             {{ ssss.operation.code }}
           </div>
           <ng-container *ngFor="let eeee of tankOperationTranferResultsTab; let p  = index   ">
-          <div class="inputBox"  *ngIf="compare_code(tankOperationTranferResultsTab[p],Tab_Centre_Retrait_Tank[j])">
-            <h3>Le lait a été livrer depuis le tank " numéro  {{ tankOperationTranferResultsTab[p].tank.idTank}}" où la quantité prise de ce dernier est :</h3>
-            {{ tankOperationTranferResultsTab[p].qteInsereTank}}
-          </div>
-        </ng-container>
+            <div class="inputBox" *ngIf="compare_code(tankOperationTranferResultsTab[p],Tab_Centre_Retrait_Tank[j])">
+              <h3>Le lait a été livrer depuis le tank " numéro {{ tankOperationTranferResultsTab[p].tank.idTank}}" où la
+                quantité prise de ce dernier est :</h3>
+              {{ tankOperationTranferResultsTab[p].qteInsereTank}}
+            </div>
+          </ng-container>
         </div>
       </form>
-
-
     </div>
   </div>
-
-
   <h1 class="heading">
     <span>r</span>
     <span>e</span>
@@ -259,72 +208,43 @@
     <span>s</span>
     <span>t</span>
   </h1>
-
-
-
   <div>
     <div class="row">
-
-
       <div class="image">
         <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
-
-    <div class="row" >
+    <div class="row">
       <form action="" style="height: auto;" *ngFor="let ttt of Tab_Usine_Remplissage_Tank; let j  = index">
-
         <div class="card-body">
-
           <div class="inputBox">
             <h3>La quantité de lait reçue depuis le centre de collecte de :</h3>
             {{ ttt.operation.centreCollecte.nomCentre }}
           </div>
-
-
           <div class="inputBox">
             <h3>La quantité de lait reçue</h3>
             {{ ttt.operation.poidsLait }}
           </div>
-
           <div class="inputBox">
             <h3>La date de l'opération</h3>
             {{ ttt.operation.dateOperation }}
           </div>
-
           <div class="inputBox">
             <h3>Le code de l'opération reçue</h3>
             {{ ttt.operation.code }}
           </div>
           <ng-container *ngFor="let eeee of tankOpUsineRemplissageResultsTab; let p  = index   ">
-
             <div class="inputBox"
               *ngIf="compare_code(tankOpUsineRemplissageResultsTab[p],Tab_Usine_Remplissage_Tank[j])">
-              <h3>La quantité de lait inseré dans le tank " numero {{tankOpUsineRemplissageResultsTab[p].tank.idTank}}" est :</h3>
+              <h3>La quantité de lait inseré dans le tank " numero {{tankOpUsineRemplissageResultsTab[p].tank.idTank}}"
+                est :</h3>
               {{tankOpUsineRemplissageResultsTab[p].qteInsereTank}}
             </div>
           </ng-container>
-
         </div>
-
       </form>
-
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <h1 class="heading">
     <span>t</span>
     <span>r</span>
@@ -354,196 +274,38 @@
     <span>s</span>
     <span>t</span>
   </h1>
-
   <div *ngIf="operationsTransferResult">
     <div class="row">
-
       <div class="image">
         <img [src]="imageSrc" alt="sssssssssssssssssssssssss" style="height: 660px;">
       </div>
     </div>
-
     <div class="row">
-
       <form action="" style="height: 660px;">
         <div class="card-body">
-
-          <!-- <div class="inputBox">
-            <h3>from Centre </h3>
-            {{ operationsTransferResult.centreCollecte.nomCentre }}
-          </div> -->
-
-          <!-- <div class="inputBox">
-            <h3>nom de lots</h3>
-            {{ operationsTransferResult.lot.produit.intitule }}
-          </div> -->
-
-          <!-- <div class="inputBox">
-            <h3>Quantite de lots</h3>
-            {{ operationsTransferResult.lot.qteLot }}
-          </div> -->
-
           <div class="inputBox">
             <h3>La quantité de lait transformée en produit laitier est :</h3>
             {{ operationsTransferResult.poidsLait }}
           </div>
-
           <div class="inputBox">
             <h3>La date où l'usine a efectué l'opération de transformation :</h3>
             {{ operationsTransferResult.dateOperation }}
           </div>
-
           <div class="inputBox">
             <h3>Le code de transformation</h3>
             {{ operationsTransferResult.code }}
           </div>
           <div class="inputBox">
-            <h3>La quantité de lait a été prise du tank " numéro  {{ operationsTransferResult.tank.idTank}}" dont la quantité est :</h3>
-           {{ operationsTransferResult.poidsLait }}
+            <h3>La quantité de lait a été prise du tank " numéro {{ operationsTransferResult.tank.idTank}}" dont la
+              quantité est :</h3>
+            {{ operationsTransferResult.poidsLait }}
           </div>
         </div>
       </form>
-
-
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- 
-
-  <div *ngFor="let ssss of agrsOperations0 | async">
-    <span class="timeline-body">
-      //*********************** oop agriculteur
-      retrait***********************************************************************//<br />
-
-      Operation:agrs {{ ssss }} ||
-
-      <br />
-      ************************************************************************************************
-    </span>
-  </div>
-
-  <br /> <br />
-
-  <div *ngFor="let qqqqs of operationsRemplissageCol | async">
-    <span class="timeline-body">
-      //*********************** oop centre
-      remplissage***********************************************************************//<br />
-
-      Operation:usine {{ qqqqs }} ||
-
-      <br />
-      //****************************************************************************************************/
-    </span>
-  </div>
-  <br /> <br />
-  <br /> <br />
-
-  <div *ngFor="let fff of operationss | async">
-    <span class="timeline-body">
-      /*************************************** centre op tank
-      retrait***********************************************************/<br />
-      Operation tank de centre:
-      {{ fff }} ||
-      <br />
-      /**************************************************************************************************/
-    </span>
-   
-  </div>
-  <br /> <br />
-  <div *ngFor="let qqqqss of agrsOperations0U | async">
-    <span class="timeline-body">
-      //*********************** oop usine
-      remplissage***********************************************************************//<br />
-
-      Operation:usine {{ qqqqss }} ||
-
-      <br />
-      //****************************************************************************************************/
-    </span>
-  </div>
-  <br /> <br />
--->
-<!-- 
-  <div *ngFor="let qqqqsss of Tab_Centre_Remplissage_Tank">
-    <span class="timeline-body">
-      //*********************** oop usine
-      transfer***********************************************************************//<br />
-
-      Operation:usine {{ qqqqsss }} ||
-
-      //****************************************************************************************************/<br />
-    </span>
-    <br />
-  </div>
-  <br /> <br /> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <span class="timeline-body">
-        //***********************find by code results opertaion tank ****************************************************************************/
-        opertaion tank: {{ AllOperationsFarmerTab }} 
-        //****************************************************************************************************/
-      </span>
-      <br /> <br /><br /> <br />
-      <span class="timeline-body">
-        //***********************find by code results opertaion tank ****************************************************************************/
-        opertaion tank: {{ operationsRemplissageCol1 }} 
-        //****************************************************************************************************/
-      </span>
-  
-  
-
-
-
-
-
-  <!-- 
-  <p>find by operation de retrait de centre using transfer code (code de transfer usine )</p>
-  <p><input type="number" id="id" name="id" #id /></p>
-  <button type="button" (click)="Compare_TransferOP_RetraitCentreOPT(id.value)">Clickme</button>
- -->
-
-
 </section>
 <!-- book section ends -->
-
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
