@@ -1,13 +1,10 @@
-import { Operation } from "./operation";
-import { Tank } from "./tank";
+import { Operation } from './operation';
+import { Tank } from './tank';
 
-export class OperationTank{
-
+export class OperationTank {
   idOpTank!: number;
   qteInsereTank!: number;
   date!: Date;
-  operation!:Operation;
-  tank!:Tank;
-
-
+  operation!: Operation;
+  tank!: Tank;
 }
