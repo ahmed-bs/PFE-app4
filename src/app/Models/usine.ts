@@ -1,6 +1,5 @@
-
-export class Usine{
-    idUsine!:number;
-    nomUsine!: string;
-    adresse!: string;
-   }
+export class Usine {
+  idUsine!: number;
+  nomUsine!: string;
+  adresse!: string;
+}

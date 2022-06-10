@@ -1,11 +1,8 @@
-export class Tank{
-
- 
+export class Tank {
   idTank!: number;
-  matricule!:string;
+  matricule!: string;
   poidVide!: number;
   poidActuel!: number;
   etat!: string;
-  codeTank!:[]
-  
-  }
+  codeTank!: [];
+}

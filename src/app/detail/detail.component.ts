@@ -35,7 +35,7 @@ export class DetailComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private location: Location
-  ) { }
+  ) {}
 
   //**************************trandfer usine ************************************************* */
   OperationsT!: OperationTank[];
@@ -50,10 +50,6 @@ export class DetailComponent implements OnInit {
         signer
       );
       this.OperationsT = await contract.getOperationTanks();
-      // console.log(
-      //   '**************************0000000000000000000000000 /////////////////////////////'
-      // );
-      // console.log(this.OperationsT);
     }
   }
   //**************************transfer usine ************************************************* */
@@ -69,10 +65,6 @@ export class DetailComponent implements OnInit {
         signer
       );
       this.agrsOperations0T = contract.getOperationTanks();
-      // console.log(
-      //   '**************************0000000000000000000000000 /////////////////////////////'
-      // );
-      // console.log(this.agrsOperations0T);
     }
   }
   //************************************************************************************** */
@@ -92,8 +84,6 @@ export class DetailComponent implements OnInit {
       );
       this.operationsRemplissageCol = contract.getOperationTanks();
     }
-    // console.log('**************************4471441714144');
-    // console.log(this.operationsRemplissageCol);
   }
   /*************************************************************************************** */
 
@@ -112,8 +102,6 @@ export class DetailComponent implements OnInit {
       );
       this.operationsRemplissageCol1 = await contract.getOperationTanks();
     }
-    // console.log('**************************4471441714144');
-    // console.log(this.operationsRemplissageCol1);
   }
   /*************************************************************************************** */
 
@@ -130,10 +118,6 @@ export class DetailComponent implements OnInit {
         signer
       );
       this.OpTankRemplissageUsineTabs = await contract.getOperationTanksUsine();
-      // console.log(
-      //   '**************************0000000000000000000000000 /////////////////////////////'
-      // );
-      // console.log(this.OpTankRemplissageUsineTabs);
     }
   }
   //**************************remplissage usine ************************************************* */
@@ -149,10 +133,6 @@ export class DetailComponent implements OnInit {
         signer
       );
       this.agrsOperations0U = contract.getOperationTanksUsine();
-      // console.log(
-      //   '**************************0000000000000000000000000 /////////////////////////////'
-      // );
-      // console.log(this.agrsOperations0U);
     }
   }
   //************************************************************************************** */
@@ -171,10 +151,6 @@ export class DetailComponent implements OnInit {
         signer
       );
       this.AllOperationsFarmerTab = await contract.getOperations();
-      // console.log(
-      //   '**************************0000000000000000000000000 /////////////////////////////'
-      // );
-      // console.log(this.AllOperationsFarmerTab);
     }
   }
   agrsOperations0!: Observable<AgrsOperation[]>;
@@ -189,10 +165,6 @@ export class DetailComponent implements OnInit {
         signer
       );
       this.agrsOperations0 = contract.getOperations();
-      // console.log(
-      //   '**************************0000000000000000000000000 /////////////////////////////'
-      // );
-      // console.log(this.AllOperationsFarmerTab);
     }
   }
   //************************************************************************************** */
@@ -205,7 +177,6 @@ export class DetailComponent implements OnInit {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      // console.log(signer);
       const contract = new ethers.Contract(
         RetraitCentreAdress.networks[depKEY].address,
         RetraitCentreAdress.abi,
@@ -213,8 +184,6 @@ export class DetailComponent implements OnInit {
       );
       this.operationss = contract.getOperationTanks();
     }
-    // console.log('**************************4471441714144');
-    // console.log(this.operationss);
   }
   jj!: number;
 
@@ -224,7 +193,6 @@ export class DetailComponent implements OnInit {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      // console.log(signer);
       const contract = new ethers.Contract(
         RetraitCentreAdress.networks[depKEY].address,
         RetraitCentreAdress.abi,
@@ -234,31 +202,12 @@ export class DetailComponent implements OnInit {
 
       this.jj = this.OpTankRetraitCentreTab01.length;
     }
-    // console.log('**************************4471441714144');
-    // console.log(this.OpTankRetraitCentreTab01);
   }
 
   /**************************************************************************** */
 
-  //from agriculteuurs find one agriculteur
-
   codeFarmer!: number;
   operationsFarmer!: Operation;
-
-  // async fromAgriculteurGetOneOp(codeFarmer: any) {
-  //   const depKEY = Object.keys(RetraitCentreAdress.networks)[0];
-  //   if (typeof window.ethereum !== 'undefined') {
-  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //     const signer = provider.getSigner();
-  //     this.codeFarmer = parseInt(codeFarmer);
-  //     const contract = new ethers.Contract(
-  //       RetraitCentreAdress.networks[depKEY].address,
-  //       RetraitCentreAdress.abi,
-  //       signer
-  //     );
-  //     this.operationsFarmer = await contract.GetOperationFarmerByCode(this.codeFarmer);
-  //   }
-  // }
 
   //this to find operationTank from usine  USING A CODE de transfer
 
@@ -313,14 +262,24 @@ export class DetailComponent implements OnInit {
     var ss = 0;
     var dd = 0;
     var kk = 0;
-    for (let i = 0; i < this.OperationTankRetraitResultCode.operation.codeRemplissage.length; i++) {
+    for (
+      let i = 0;
+      i < this.OperationTankRetraitResultCode.operation.codeRemplissage.length;
+      i++
+    ) {
       for (let f = 0; f < this.AllOperationsFarmerTab.length; f++) {
-        if (Number(this.OperationTankRetraitResultCode.operation.codeRemplissage[i]) == Number(this.AllOperationsFarmerTab[f].code)) 
-          {
+        if (
+          Number(
+            this.OperationTankRetraitResultCode.operation.codeRemplissage[i]
+          ) == Number(this.AllOperationsFarmerTab[f].code)
+        ) {
           if (this.OperationFarmerResultsTab[0] == null) {
-            this.OperationFarmerResultsTab[0] = this.AllOperationsFarmerTab[f]
+            this.OperationFarmerResultsTab[0] = this.AllOperationsFarmerTab[f];
           }
-          if (!this.OperationFarmerResultsTab.some(food => food === this.AllOperationsFarmerTab[f])
+          if (
+            !this.OperationFarmerResultsTab.some(
+              (food) => food === this.AllOperationsFarmerTab[f]
+            )
           ) {
             this.OperationFarmerResultsTab.push(this.AllOperationsFarmerTab[f]);
           }
@@ -328,37 +287,45 @@ export class DetailComponent implements OnInit {
       }
       for (let r = 0; r < this.operationsRemplissageCol1.length; r++) {
         if (
-          Number(this.OperationTankRetraitResultCode.operation.codeRemplissage[i]) == Number(this.operationsRemplissageCol1[r].operation.code)
+          Number(
+            this.OperationTankRetraitResultCode.operation.codeRemplissage[i]
+          ) == Number(this.operationsRemplissageCol1[r].operation.code)
         ) {
-
           if (this.operationsRemplissageColResultsTab[0] == null) {
-            this.operationsRemplissageColResultsTab[0] = this.operationsRemplissageCol1[r]
+            this.operationsRemplissageColResultsTab[0] =
+              this.operationsRemplissageCol1[r];
           }
 
-          if (!this.operationsRemplissageColResultsTab.some(food => food === this.operationsRemplissageCol1[r])
+          if (
+            !this.operationsRemplissageColResultsTab.some(
+              (food) => food === this.operationsRemplissageCol1[r]
+            )
           ) {
-            this.operationsRemplissageColResultsTab.push(this.operationsRemplissageCol1[r]);
+            this.operationsRemplissageColResultsTab.push(
+              this.operationsRemplissageCol1[r]
+            );
             dd++;
           }
         }
       }
-
     }
-    if(this.Tab_Centre_Remplissage_Tank[0] == null){
-      this.Tab_Centre_Remplissage_Tank[0] = this.operationsRemplissageColResultsTab[0];
+    if (this.Tab_Centre_Remplissage_Tank[0] == null) {
+      this.Tab_Centre_Remplissage_Tank[0] =
+        this.operationsRemplissageColResultsTab[0];
     }
     for (let i = 0; i < this.operationsRemplissageColResultsTab.length; i++) {
       if (
         i != 0 &&
         Number(this.operationsRemplissageColResultsTab[i].operation.code) !=
-        Number(this.operationsRemplissageColResultsTab[i - 1].operation.code)
+          Number(this.operationsRemplissageColResultsTab[i - 1].operation.code)
       ) {
-        this.Tab_Centre_Remplissage_Tank[kk] = this.operationsRemplissageColResultsTab[i - 1];
+        this.Tab_Centre_Remplissage_Tank[kk] =
+          this.operationsRemplissageColResultsTab[i - 1];
         kk++;
-        this.Tab_Centre_Remplissage_Tank[kk] = this.operationsRemplissageColResultsTab[i];
+        this.Tab_Centre_Remplissage_Tank[kk] =
+          this.operationsRemplissageColResultsTab[i];
       }
     }
-
   }
 
   //from Transfer usine to remplissage usine + retrait centre
@@ -372,7 +339,6 @@ export class DetailComponent implements OnInit {
     this.tankOpUsineRemplissageResultsTab = [];
     var ss = 0;
     var tt = 0;
-    // console.log(this.operationsTransferResult.codeRemplissage.length);
     for (
       let i = 0;
       i < this.operationsTransferResult.codeRemplissage.length;
@@ -391,10 +357,14 @@ export class DetailComponent implements OnInit {
 
       for (let f = 0; f < this.OpTankRetraitCentreTab01.length; f++) {
         if (
-          Number(this.operationsTransferResult.codeRemplissage[i]) == Number(this.OpTankRetraitCentreTab01[f].operation.code)
+          Number(this.operationsTransferResult.codeRemplissage[i]) ==
+          Number(this.OpTankRetraitCentreTab01[f].operation.code)
         ) {
-          this.tankOperationTranferResultsTab[ss] = this.OpTankRetraitCentreTab01[f];
-          this.Compare_FarmerOP_RetraitCentreOPT(this.OpTankRetraitCentreTab01[f].operation.code);
+          this.tankOperationTranferResultsTab[ss] =
+            this.OpTankRetraitCentreTab01[f];
+          this.Compare_FarmerOP_RetraitCentreOPT(
+            this.OpTankRetraitCentreTab01[f].operation.code
+          );
           ss++;
         }
       }
@@ -402,23 +372,24 @@ export class DetailComponent implements OnInit {
     var tt = 0;
     var jj = 0;
 
-
-
-    if(this.Tab_Usine_Remplissage_Tank[0] == null){
-      this.Tab_Usine_Remplissage_Tank[0] = this.tankOpUsineRemplissageResultsTab[0];
+    if (this.Tab_Usine_Remplissage_Tank[0] == null) {
+      this.Tab_Usine_Remplissage_Tank[0] =
+        this.tankOpUsineRemplissageResultsTab[0];
     }
     for (let i = 0; i < this.tankOpUsineRemplissageResultsTab.length; i++) {
       if (
         i != 0 &&
         Number(this.tankOpUsineRemplissageResultsTab[i].operation.code) !=
-        Number(this.tankOpUsineRemplissageResultsTab[i - 1].operation.code)
+          Number(this.tankOpUsineRemplissageResultsTab[i - 1].operation.code)
       ) {
-        this.Tab_Usine_Remplissage_Tank[tt] = this.tankOpUsineRemplissageResultsTab[i - 1];
+        this.Tab_Usine_Remplissage_Tank[tt] =
+          this.tankOpUsineRemplissageResultsTab[i - 1];
         tt++;
-        this.Tab_Usine_Remplissage_Tank[tt] = this.tankOpUsineRemplissageResultsTab[i];
+        this.Tab_Usine_Remplissage_Tank[tt] =
+          this.tankOpUsineRemplissageResultsTab[i];
       }
     }
-    if(this.Tab_Centre_Retrait_Tank[0] == null){
+    if (this.Tab_Centre_Retrait_Tank[0] == null) {
       this.Tab_Centre_Retrait_Tank[0] = this.tankOperationTranferResultsTab[0];
     }
 
@@ -426,11 +397,13 @@ export class DetailComponent implements OnInit {
       if (
         i != 0 &&
         Number(this.tankOperationTranferResultsTab[i].operation.code) !=
-        Number(this.tankOperationTranferResultsTab[i - 1].operation.code)
+          Number(this.tankOperationTranferResultsTab[i - 1].operation.code)
       ) {
-        this.Tab_Centre_Retrait_Tank[jj] = this.tankOperationTranferResultsTab[i - 1];
+        this.Tab_Centre_Retrait_Tank[jj] =
+          this.tankOperationTranferResultsTab[i - 1];
         jj++;
-        this.Tab_Centre_Retrait_Tank[jj] = this.tankOperationTranferResultsTab[i];
+        this.Tab_Centre_Retrait_Tank[jj] =
+          this.tankOperationTranferResultsTab[i];
       }
     }
   }
@@ -439,52 +412,13 @@ export class DetailComponent implements OnInit {
   Tab_Centre_Retrait_Tank: OperationTank[] = [];
   Tab_Centre_Remplissage_Tank: OperationTank[] = [];
 
-  //      Last_Tab() {
-  //       var tt = 0;
-
-  // for (let i = 0; i < this.tankOpUsineRemplissageResultsTab.length; i++) {
-  //   if (i != 0  && Number(this.tankOpUsineRemplissageResultsTab[i].operation.code) == Number(this.tankOpUsineRemplissageResultsTab[i-1].operation.code)  ) {
-  //     this.Tab_Usine_Remplissage_Tank[tt]=this.tankOpUsineRemplissageResultsTab[i-1]
-
-  //    tt++
-  //    this.Tab_Usine_Remplissage_Tank[tt]=this.tankOpUsineRemplissageResultsTab[i]
-  //    console.log(this.Tab_Usine_Remplissage_Tank[tt])
-  //   }
-
-  // }
-
-  //     }
-
   tabhj: tankss[] = [];
-
-  //this to filter the repeated code
-
-  Last_Tab() {
-
-
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   compare_code(op1: OperationTank, op2: OperationTank) {
     if (Number(op1.operation.code) == Number(op2.operation.code)) {
-      return true
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 
@@ -515,11 +449,9 @@ export class DetailComponent implements OnInit {
     //transfer
     this.reloadDataTranfer01();
     this.reloadDataTranfer0();
-    //
+
     this.theGivenCode = this.rout.snapshot.params['id'];
     this.Compare_TransferOP_RetraitCentreOPT(this.theGivenCode);
-    // console.log(this.rout.snapshot.params['id']);
-    // console.log(this.rout.snapshot.paramMap.get('id'));
   }
   imageSrc = '../../assets/book-img.svg';
   imageSrcfarmer = '../../assets/Farming 01.jpg';

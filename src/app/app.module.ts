@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatDialogModule} from "@angular/material/dialog";
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,11 +29,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { HomeComponent } from './home/home.component';
 import { RouteReuseStrategy } from '@angular/router';
 @NgModule({
-  declarations: [			
-    AppComponent,
-      DetailComponent,
-      HomeComponent
-   ],
+  declarations: [AppComponent, DetailComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,17 +44,20 @@ import { RouteReuseStrategy } from '@angular/router';
     MatIconModule,
     MatMenuModule,
     ReactiveFormsModule,
-     //add For Sorted
-     MatSortModule,
-     // AddForPaginator
-     MatPaginatorModule,
-     MatFormFieldModule,
-     MatInputModule,
-     MatTableModule,
-     MatSnackBarModule,
-   IonicModule.forRoot()
+    //add For Sorted
+    MatSortModule,
+    // AddForPaginator
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSnackBarModule,
+    IonicModule.forRoot(),
   ],
-  providers: [QrCodeReader,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent]
+  providers: [
+    QrCodeReader,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
