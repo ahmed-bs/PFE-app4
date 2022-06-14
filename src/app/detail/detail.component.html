@@ -22,7 +22,7 @@
   <div>
     <div class="row">
       <div class="image">
-        <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 660px;width: 665px;">
+        <img [src]="imageSrcfarmer" alt="sssssssssssssssssssssssss" style="height: 660px">
       </div>
     </div>
     <div class="row">
@@ -100,7 +100,7 @@
           </div>
           <div class="inputBox">
             <h3>La quantité reçue :</h3>
-            {{ shds.operation.poidsLait }}
+            {{ shds.operation.poidsLait }} kg
           </div>
           <div class="inputBox">
             <h3>La date d'opération correspond au jour où le collecteur a réalisé l'opération de remplissage est :</h3>
@@ -115,7 +115,7 @@
               *ngIf="compare_code(operationsRemplissageColResultsTab[p],Tab_Centre_Remplissage_Tank[j])">
               <h3>la quantité inserée dans le " tank numéro {{ operationsRemplissageColResultsTab[p].tank.idTank}}" est
                 : </h3>
-              {{ operationsRemplissageColResultsTab[p].qteInsereTank}}
+              {{ operationsRemplissageColResultsTab[p].qteInsereTank}} kg
             </div>
           </ng-container>
         </div>
@@ -161,7 +161,7 @@
           </div>
           <div class="inputBox">
             <h3>La quantité livrée à l'usine est :</h3>
-            {{ ssss.operation.poidsLait }}
+            {{ ssss.operation.poidsLait }} kg
           </div>
           <div class="inputBox">
             <h3>La date de livraison du lait :</h3>
@@ -175,7 +175,7 @@
             <div class="inputBox" *ngIf="compare_code(tankOperationTranferResultsTab[p],Tab_Centre_Retrait_Tank[j])">
               <h3>Le lait a été livrer depuis le tank " numéro {{ tankOperationTranferResultsTab[p].tank.idTank}}" où la
                 quantité prise de ce dernier est :</h3>
-              {{ tankOperationTranferResultsTab[p].qteInsereTank}}
+              {{ tankOperationTranferResultsTab[p].qteInsereTank}} kg
             </div>
           </ng-container>
         </div>
@@ -223,7 +223,7 @@
           </div>
           <div class="inputBox">
             <h3>La quantité de lait reçue</h3>
-            {{ ttt.operation.poidsLait }}
+            {{ ttt.operation.poidsLait }} kg
           </div>
           <div class="inputBox">
             <h3>La date de l'opération</h3>
@@ -238,7 +238,7 @@
               *ngIf="compare_code(tankOpUsineRemplissageResultsTab[p],Tab_Usine_Remplissage_Tank[j])">
               <h3>La quantité de lait inseré dans le tank " numero {{tankOpUsineRemplissageResultsTab[p].tank.idTank}}"
                 est :</h3>
-              {{tankOpUsineRemplissageResultsTab[p].qteInsereTank}}
+              {{tankOpUsineRemplissageResultsTab[p].qteInsereTank}} kg
             </div>
           </ng-container>
         </div>
@@ -285,7 +285,7 @@
         <div class="card-body">
           <div class="inputBox">
             <h3>La quantité de lait transformée en produit laitier est :</h3>
-            {{ operationsTransferResult.poidsLait }}
+            {{ operationsTransferResult.poidsLait }} kg
           </div>
           <div class="inputBox">
             <h3>La date où l'usine a efectué l'opération de transformation :</h3>
@@ -298,7 +298,7 @@
           <div class="inputBox">
             <h3>La quantité de lait a été prise du tank " numéro {{ operationsTransferResult.tank.idTank}}" dont la
               quantité est :</h3>
-            {{ operationsTransferResult.poidsLait }}
+            {{ operationsTransferResult.poidsLait }} kg
           </div>
         </div>
       </form>
